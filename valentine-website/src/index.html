@@ -4,26 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Would You Be My Valentine?</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        #buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #yesButton {
+            transition: all 0.3s ease;
+        }
+        #message {
+            display: none;
+            font-size: 3em;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Would You Be My Valentine?</h1>
-    </header>
-    <main>
-        <section>
-            <p>Roses are red, violets are blue,</p>
-            <p>I'm asking you, will you be my boo?</p>
-        </section>
-        <section>
-            <button id="yesButton">Yes</button>
-            <button id="noButton">No</button>
-            <div id="responseMessage"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Valentine Wishes</p>
-    </footer>
-    <script src="js/scripts.js"></script>
+    <h1>Would You Be My Valentine?</h1>
+    <div id="buttons">
+        <button id="yesButton" onclick="showMessage()">YES</button>
+        <button id="noButton" onclick="enlargeYesButton()">NO</button>
+    </div>
+    <div id="message">I LOVE YOU</div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('buttons').style.display = 'none';
+        }
+
+        function enlargeYesButton() {
+            const yesButton = document.getElementById('yesButton');
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 10) + 'px';
+            yesButton.style.padding = (parseFloat(window.getComputedStyle(yesButton).padding) + 5) + 'px ' + 
+                                      (parseFloat(window.getComputedStyle(yesButton).paddingRight) + 10) + 'px';
+        }
+    </script>
 </body>
 </html>
